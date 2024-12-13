@@ -151,6 +151,7 @@ public class EmployeeManagementSystem {
             return;
         }
 
+        System.out.println("\n--- Employee List ---");
         for (Employee employee : employees) {
             employee.displayDetails();
         }
