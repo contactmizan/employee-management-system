@@ -175,6 +175,18 @@ public class EmployeeManagementSystem {
         System.out.println("Employee not found.");
     }
 
+    // Delete Employee
+    public void deleteEmployee(int id) {
+        for (int i = 0; i < employees.size(); i++) {
+            if (employees.get(i).getId() == id) {
+                employees.remove(i);
+                System.out.println("Employee deleted successfully!");
+                return;
+            }
+        }
+        System.out.println("Employee not found.");
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         EmployeeManagementSystem system = new EmployeeManagementSystem();
@@ -212,7 +224,8 @@ public class EmployeeManagementSystem {
             System.out.println("2. Add Part-Time Employee");
             System.out.println("3. List Employees");
             System.out.println("4. Update Employee Details");
-            System.out.println("5. Exit");
+            System.out.println("5. Delete Employee");
+            System.out.println("6. Exit");
             System.out.print("Choose an option: ");
 
             int choice = scanner.nextInt();
@@ -260,6 +273,12 @@ public class EmployeeManagementSystem {
                     break;
 
                 case 5:
+                    System.out.print("Enter Employee ID to delete: ");
+                    int deleteId = scanner.nextInt();
+                    system.deleteEmployee(deleteId);
+                    break;
+
+                case 6:
                     System.out.println("Exiting system. Goodbye!");
                     scanner.close();
                     return;
